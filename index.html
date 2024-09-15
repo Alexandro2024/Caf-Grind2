@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Grind - Café Especial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('fundo.webp'); /* Caminho para a imagem de fundo */
+            background-size: cover; /* Cobre toda a área visível */
+            background-position: center; /* Centraliza a imagem */
+            background-repeat: no-repeat; /* Evita que a imagem se repita */
+            color: #ffffff;
+            text-align: center;
+        }
+        title image {
+            background-image: url('logomarca café coração.png'); 
+        }
+
+        header {
+            background-color: transparent;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        .logo img {
+            max-width: 30%;
+            height: auto;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color:  /* Fundo branco semitransparente */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #4d2c21;
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+
+        .carousel img.active {
+            display: block;
+        }
+
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-buttons span {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .product-details h3 {
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .product-details p {
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .price {
+            font-size: 1.5em;
+            color: #4d2c21;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 30px 30px;
+            color: #fff;
+            background-color: #000000;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #3b2117;
+        }
+
+        footer {
+            background-color: #b8121200;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 10px;
+            }
+
+            .carousel img {
+                width: 100%;
+            }
+
+            .product-details h3, .price {
+                font-size: 1.2em;
+            }
+
+            .btn {
+                padding: 8px 16px;
+            }
+        }
+        .logomarca {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo Gourmet Grind">
+        </div>
+        <h1></h1>
+        <p>Café Especial de Qualidade Superior Ao Gourmet</p>
+    </header>
+
+    <div class="capa">
+        <img src="capa (2).png" alt="Logo Gourmet Grind">
+    </div>
+
+   
+        <div class="carousel">
+            <img src="cafe.png" alt="Pacote de Café Gourmet Grind - Frente" class="active">
+            <img src="cafe.png" alt="Pacote de Café Gourmet Grind - Verso">
+            <div class="carousel-buttons">
+                <span id="prev">&#10094;</span>
+                <span id="next">&#10095;</span>
+            </div>
+        </div>
+
+        <div class="product-details">
+            <h3>Café Grind "Café Especial" Sachê - 250g</h3>
+            <p>Delicie-se com o sabor rico e encorpado do nosso café Especial. Produzido com os melhores grãos, nosso
+                café oferece uma experiência única a cada xícara.</p>
+            <p class="price">R$32,50</p>
+            <a href="https://www.asaas.com/c/79xr1mue8p6u4kt8" target="_blank" class="btn">Comprar Agora</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Sobre a Empresa Café Grind</h2>
+        <h3>Visão Geral</h3>
+        <p>Fundada em 2024, a empresa nasceu do desejo de oferecer aos amantes de café uma experiência única e refinada,
+            desde o grão até a xícara. Com um foco em práticas sustentáveis e comércio justo, a Café Grind busca
+            transformar o simples ato de tomar café em um ritual de prazer e conexão.</p>
+</div>
+
+    <footer>
+        <p>&copy; 2024 Café Grind. Todos os direitos reservados. 55.276.743/0001-80</p>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.carousel img');
+        const totalImages = images.length;
+
+        document.getElementById('next').addEventListener('click', function () {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % totalImages;
+            images[currentIndex].classList.add('active');
+        });
+
+        document.getElementById('prev').addEventListener('click', function () {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+            images[currentIndex].classList.add('active');
+        });
+    </script>
+
+</body>
+
+</html>
